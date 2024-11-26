@@ -1,16 +1,12 @@
-
-import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 import EventItem from "./components/EventItem";
-import eventsJSON from '../../data/events.json';
 
-const Events = ({ searchTerm }) => {
-    
-    const [data] = useState(eventsJSON);
-    const { _embedded: { events }} = data;
+const Events = ({ searchTerm, events }) => {
+    const navigate = useNavigate();
 
     const handleEventItemClick = (id) => {
-        console.log("Evento clickeado" + id)
+        console.log("Evento clickeado: ",  id)
     };
 
     const renderEvents = () => {
